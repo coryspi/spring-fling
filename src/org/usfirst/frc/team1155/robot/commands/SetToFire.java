@@ -1,5 +1,7 @@
 package org.usfirst.frc.team1155.robot.commands;
 
+import org.usfirst.frc.team1155.robot.Robot;
+
 import edu.wpi.first.wpilibj.command.Command;
 
 /**
@@ -7,13 +9,18 @@ import edu.wpi.first.wpilibj.command.Command;
  */
 public class SetToFire extends Command {
 
+	private final double speed = 0.5;
+	
     public SetToFire() {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
+    	requires(Robot.SpringSubsystem);
+    	
     }
 
     // Called just before this Command runs the first time
     protected void initialize() {
+    	
     }
 
     // Called repeatedly when this Command is scheduled to run
