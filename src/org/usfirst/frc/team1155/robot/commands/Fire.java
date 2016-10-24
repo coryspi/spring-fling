@@ -34,6 +34,8 @@ public class Fire extends Command {
     	springSubsystem.leftTalon.set(-1);
     	springSubsystem.rightTalon.set(1);
     }
+    springSubsystem.leftTalon.set(0);
+	springSubsystem.rightTalon.set(0);
     }
 
     // Called when another command which requires one or more of the same
