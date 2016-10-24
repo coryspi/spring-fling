@@ -14,13 +14,14 @@ public class SetToFire extends Command {
     public SetToFire() {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
-    	requires(Robot.SpringSubsystem);
+    	requires(Robot.springSubsystem);
     	
     }
 
     // Called just before this Command runs the first time
     protected void initialize() {
-    	
+    	springSubsystem.leftTalon.set(1);
+    	springSubsystem.rightTalon.set(-1);
     }
 
     // Called repeatedly when this Command is scheduled to run
@@ -29,11 +30,17 @@ public class SetToFire extends Command {
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
+    	if(leftTalon.getDistance() >= springSubsystem.encMax){
+    		return true;
+    	}
         return false;
     }
 
     // Called once after isFinished returns true
     protected void end() {
+    	springSubsystem.leftTalon.set(0);
+    	springSubsystem.rightTalon.set(0);
+
     }
 
     // Called when another command which requires one or more of the same

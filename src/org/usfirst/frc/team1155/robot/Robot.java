@@ -18,6 +18,7 @@ import org.usfirst.frc.team1155.robot.subsystems.ExampleSubsystem;
 public class Robot extends IterativeRobot {
 
 	public static final ExampleSubsystem exampleSubsystem = new ExampleSubsystem();
+	public static final SpringSubsystem springSubSystem = new SpringSubsystem();
 	public static OI oi;
 
     Command autonomousCommand;
