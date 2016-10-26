@@ -38,6 +38,10 @@ public class SetToFire extends Command {
 
     // Called once after isFinished returns true
     protected void end() {
+    	while(leftLockTalon.getDistance() < springSubsystem.lockDist){
+    		leftLockTalon.set(1);
+    		rightLockTalon.set(1);
+    	}
     	for (int i = leftGearTalon.getDistance(); i > springSubsystem.encMin; i++ ){
     		springGearSubsystem.leftTalon.set(-1);
     		springGearSubsystem.rightTalon.set(1);
