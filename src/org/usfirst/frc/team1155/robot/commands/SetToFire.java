@@ -9,19 +9,19 @@ import edu.wpi.first.wpilibj.command.Command;
  */
 public class SetToFire extends Command {
 
-	private final double speed = 0.5;
+	private final int SET_AMOUNT; 
 	
-    public SetToFire() {
+    public SetToFire(int setAmount) {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
     	requires(Robot.springSubsystem);
-    	
+    	SET_AMOUNT = setAmount;
     }
 
     // Called just before this Command runs the first time
     protected void initialize() {
-    	springSubsystem.leftTalon.set(1);
-    	springSubsystem.rightTalon.set(-1);
+    	springSubsystem.leftGearTalon.set(1);
+    	springSubsystem.rightGearTalon.set(-1);
     }
 
     // Called repeatedly when this Command is scheduled to run
@@ -30,7 +30,7 @@ public class SetToFire extends Command {
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-    	if(leftTalon.getDistance() >= springSubsystem.encMax){
+    	if(leftGearTalon.getDistance() >= SET_AMOUNT){
     		return true;
     	}
         return false;
@@ -38,12 +38,12 @@ public class SetToFire extends Command {
 
     // Called once after isFinished returns true
     protected void end() {
-    	for (int i = leftTalon.getDistance(); i > springSubsystem.encMin; i++ ){
-    		springSubsystem.leftTalon.set(-1);
-    		springSubsystem.rightTalon.set(1);
+    	for (int i = leftGearTalon.getDistance(); i > springSubsystem.encMin; i++ ){
+    		springGearSubsystem.leftTalon.set(-1);
+    		springGearSubsystem.rightTalon.set(1);
     	}
-    springSubsystem.leftTalon.set(0);
-	springSubsystem.rightTalon.set(0);
+    springSubsystem.leftGearTalon.set(0);
+	springSubsystem.rightGearTalon.set(0);
 
 
     }
