@@ -21,7 +21,7 @@ public class SetToFire extends Command {
     // Called just before this Command runs the first time
     protected void initialize() {
     	springSubsystem.leftGearTalon.set(1);
-    	springSubsystem.rightGearTalon.set(-1);
+    	springSubsystem.rightGearTalon.set(1);
     }
 
     // Called repeatedly when this Command is scheduled to run
@@ -38,13 +38,9 @@ public class SetToFire extends Command {
 
     // Called once after isFinished returns true
     protected void end() {
-    	while(leftLockTalon.getDistance() < springSubsystem.lockDist){
-    		leftLockTalon.set(1);
-    		rightLockTalon.set(1);
-    	}
     	for (int i = leftGearTalon.getDistance(); i > springSubsystem.encMin; i++ ){
-    		springGearSubsystem.leftTalon.set(-1);
-    		springGearSubsystem.rightTalon.set(1);
+    		springSubsystem.leftGearTalon.set(-1);
+    		springSubsystem.rightGearTalon.set(-1);
     	}
     springSubsystem.leftGearTalon.set(0);
 	springSubsystem.rightGearTalon.set(0);
