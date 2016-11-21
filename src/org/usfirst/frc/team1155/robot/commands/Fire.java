@@ -21,8 +21,8 @@
 	    }
 	    // Called repeatedly when this Command is scheduled to run
 	    protected void execute() {
-	    	   springSubsystem.leftLockTalon.set(-1);
-	    	    springSubsystem.rightLockTalon.set(-1);
+	    	   springSubsystem.leftLockPiston.set(off);
+	    	    springSubsystem.rightLockPiston.set(off);
 	    	    
 	    }
 	    // Make this return true when this Command no longer needs to run execute()
@@ -34,8 +34,7 @@
 	    }
 	    // Called once after isFinished returns true
 	    protected void end() {
-	    	   springSubsystem.leftLockTalon.set(0);
-	    	    springSubsystem.rightLockTalon.set(0);
+	    	   
 	    	    
 	    }
 	
