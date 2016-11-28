@@ -21,16 +21,13 @@
 	    }
 	    // Called repeatedly when this Command is scheduled to run
 	    protected void execute() {
-	    	   springSubsystem.leftLockPiston.set(off);
-	    	    springSubsystem.rightLockPiston.set(off);
+	    	   springSubsystem.leftLockPiston.set(on);
+	    	    springSubsystem.rightLockPiston.set(on);
 	    	    
 	    }
 	    // Make this return true when this Command no longer needs to run execute()
 	    protected boolean isFinished() {
-	    	if(leftLockTalon.getDistance() > springSubsystem.encMin){
-	    		return true;
-	    	}
-	        return false;
+	    	
 	    }
 	    // Called once after isFinished returns true
 	    protected void end() {
