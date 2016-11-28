@@ -26,8 +26,29 @@ public class SpringSubsystem extends Subsystem {
 		
 	}
 	
+	public void unlock(){
+		leftLockPiston.set(true);
+		rightLockPiston.set(true);
+	}
+	
 	public void lock(){
-		
+		leftLockPiston.set(false);
+		rightLockPiston.set(false);
+	}
+	
+	public void moveDown(){
+		leftGearTalon.set(1);
+		rightGearTalon.set(1);
+	}
+	
+	public void moveUp(){
+		leftGearTalon.set(-1);
+		rightGearTalon.set(-1);
+	}
+	
+	public void stopMoving(){
+		leftGearTalon.set(0);
+		rightGearTalon.set(0);
 	}
 	
     public void initDefaultCommand() {

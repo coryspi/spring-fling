@@ -9,8 +9,6 @@ import edu.wpi.first.wpilibj.command.Command;
  */
 public class SetToFire extends Command {
 
-	boolean isOn = true;
-	boolean isFalse = false; 
 	private final int SET_AMOUNT; 
 	
     public SetToFire(int setAmount) {
@@ -22,8 +20,8 @@ public class SetToFire extends Command {
 
     // Called just before this Command runs the first time
     protected void initialize() {
-    	springSubsystem.leftGearTalon.set(1);
-    	springSubsystem.rightGearTalon.set(1);
+    	springSubsystem.unlock();
+    	springSubsystem.moveDown();
     }
 
     // Called repeatedly when this Command is scheduled to run
@@ -40,12 +38,12 @@ public class SetToFire extends Command {
 
     // Called once after isFinished returns true
     protected void end() {
+    	springSubsystem.lock();
     	for (int i = leftGearTalon.getDistance(); i > springSubsystem.encMin; i++ ){
-    		springSubsystem.leftGearTalon.set(-1);
-    		springSubsystem.rightGearTalon.set(-1);
+    		springSubsystem.moveUp();
     	}
-    springSubsystem.leftGearTalon.set(0);
-	springSubsystem.rightGearTalon.set(0);
+    	
+    	springSubsystem.stopMoving();
 
 
     }
