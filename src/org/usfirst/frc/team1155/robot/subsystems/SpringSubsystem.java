@@ -12,10 +12,11 @@ public class SpringSubsystem extends Subsystem {
 	// encMax is a meaningless value meant to represent the farthest distance reachable by the talons 
 	public static int encMax = 5;
 	// encMin is a meaningless value meant to represent the lowest distance reachable by the talons 
-	public static int encMin =0 ;
+	public static int encMin = 0 ;
 	public static double lockDist;
 	// Put methods for controlling this subsystem
     // here. Call these from Commands.
+	private static final int SET_AMOUNT; 
 
 	public SpringSubsystem(){
 		

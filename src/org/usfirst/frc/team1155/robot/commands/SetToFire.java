@@ -9,13 +9,12 @@ import edu.wpi.first.wpilibj.command.Command;
  */
 public class SetToFire extends Command {
 
-	private final int SET_AMOUNT; 
 	
     public SetToFire(int setAmount) {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
     	requires(Robot.springSubsystem);
-    	SET_AMOUNT = setAmount;
+    	springSubsystem.SET_AMOUNT = setAmount;
     }
 
     // Called just before this Command runs the first time
@@ -30,7 +29,7 @@ public class SetToFire extends Command {
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-    	if(leftGearTalon.getDistance() >= SET_AMOUNT){
+    	if(leftGearTalon.getDistance() >= springSubsystem.SET_AMOUNT){
     		return true;
     	}
         return false;
