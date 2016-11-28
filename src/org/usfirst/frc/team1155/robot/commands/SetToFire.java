@@ -9,6 +9,8 @@ import edu.wpi.first.wpilibj.command.Command;
  */
 public class SetToFire extends Command {
 
+	boolean isOn = true;
+	boolean isFalse = false; 
 	private final int SET_AMOUNT; 
 	
     public SetToFire(int setAmount) {
